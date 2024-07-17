@@ -43,6 +43,7 @@ class ProjectControllerTest {
     static ProjectDTO project;
     // why static, because I am going to use these inside the before all method
 
+    //in here using  @BeforeAll  we are creating data before we are starting to do any test in our projectControllerTestClass
     @BeforeAll
     static void setUp() {
 
@@ -68,6 +69,7 @@ class ProjectControllerTest {
                 "Some details",
                 Status.OPEN
         );
+
 
     }
 
@@ -136,7 +138,8 @@ class ProjectControllerTest {
         objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         objectMapper.registerModule(new JavaTimeModule());
         return objectMapper.writeValueAsString(obj);
-    }
+    } // this is custom code we can find in google
+
 
     private static String getToken() {
 
