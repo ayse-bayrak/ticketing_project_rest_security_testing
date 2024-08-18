@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final ProjectService projectService;
     private final TaskService taskService;
-    private final KeycloakService keycloakService; // I want to use createUser method in keycloak
+    private final KeycloakService keycloakService; // I want to call createUser method in keycloak
     private final PasswordEncoder passwordEncoder;
 
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, @Lazy ProjectService projectService, @Lazy TaskService taskService, KeycloakService keycloakService, PasswordEncoder passwordEncoder) {

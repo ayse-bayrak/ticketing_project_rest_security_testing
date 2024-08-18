@@ -40,11 +40,11 @@ public class UserDTO {
 
     @NotBlank
     @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,}")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // I can write, but when we retrieve don't read it
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // write only means when I post in the body I can write, but when we retrieve don't read it
     private String passWord;
 
     @NotNull
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // same thing with password
     private String confirmPassWord;
 
     private boolean enabled;

@@ -31,7 +31,7 @@ public class ProjectController {
     public ResponseEntity<ResponseWrapper> getProjects() {
 
         return ResponseEntity.ok(ResponseWrapper.builder()
-                .message("All project")
+                .message("Projects are successfully retrieved")
                 .success(true)
                 .code(HttpStatus.OK.value())
                 .data(projectService.listAllProjects()).build());

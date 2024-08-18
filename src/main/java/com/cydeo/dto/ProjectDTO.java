@@ -38,7 +38,7 @@ public class ProjectDTO {
 
     private Status projectStatus;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)  // we can access while retrieving, but we don't put while posting, because completeTaskCounts is some calculation, not directly related object property
     private int completeTaskCounts;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)

@@ -8,7 +8,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 
-// in the interview when she display the this class interviewer  really impressed so popular topic
+// in the interview when she display the this class interviewer  really impressed so popular topic,
+//so you can display this PerformanceAspect Class and custom annotation
 @Aspect
 @Component
 @Slf4j
@@ -22,12 +23,10 @@ public class PerformanceAspect {
     @GetMapping("/{username}")
      */
 
-
-
     @Around("executionTimePC()")
     public Object aroundAnyExecutionTimeAdvice (ProceedingJoinPoint proceedingJoinPoint) {
 
-        long beforeTime = System.currentTimeMillis(); // give me current time in mlsecond
+        long beforeTime = System.currentTimeMillis(); // give me current time in ml second
         Object result = null;
         log.info("Execution starts:");
 

@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@JsonInclude(JsonInclude.Include.NON_NULL)  // Jackson meaning modify your Json output, if anything is not null don't show
+@JsonInclude(JsonInclude.Include.NON_NULL)  // Jackson meaning modify your Json output, if anything is non null, don't show
 public class ResponseWrapper {
 
     private boolean success;

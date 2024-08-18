@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 
 @Aspect
 @Controller
-@Slf4j // this annotation is going to give logger instance same thing with line 14
+@Slf4j // this annotation is going to give logger instance same thing with line 16
 public class LoggingAspect {
 
 //    Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
@@ -24,11 +24,11 @@ public class LoggingAspect {
         // to get logged in user information
         SimpleKeycloakAccount userDetails = (SimpleKeycloakAccount) authentication.getDetails();
         return userDetails.getKeycloakSecurityContext().getToken().getPreferredUsername();
-    // got username from kycloak
+        // got username from kycloak
     }
 
     @Pointcut("execution(* com.cydeo.controller.ProjectController.*(..)) || execution(* com.cydeo.controller.TaskController.*(..)) ")
-public void anyProjectAndTaskControllerPC() {}
+    public void anyProjectAndTaskControllerPC() {}
 
     @Before("anyProjectAndTaskControllerPC()")
     public void beforeAnyProjectAndTaskControllerAdvice(JoinPoint joinPoint) {

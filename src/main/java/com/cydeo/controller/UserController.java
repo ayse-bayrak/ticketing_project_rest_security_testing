@@ -26,9 +26,9 @@ public class UserController {
         this.userService = userService;
         this.mapperUtil = mapperUtil;
     }
-// we want to modify our status code or we might need to pass header to Json, that's why we use ResponseEntity
+    // we want to modify our status code or we might need to pass header to Json, that's why we use ResponseEntity
     // ResponseEntity is generic class we need to provide something class
-    // I want to see that custom output as a Json
+    // We provide ResponseWrapper, because I want to see that custom output as a Json
 
     // in the most of the company for all CRUD operation (get something, create, update, delete something is only work with one base endpoint (in the class level))
     ///api/v1/user this endpint will work for all get, put, post, delete
@@ -38,6 +38,7 @@ public class UserController {
     @Operation(summary = "Get users") // for swagger topic
     public ResponseEntity<ResponseWrapper> getUsers(){
        // ResponseWrapper responseWrapper = new ResponseWrapper("All users are retrieved", userService.listAllUsers(), HttpStatus.OK);
+        // we can use constructor like above or builder() like below
         ResponseWrapper responseWrapper = ResponseWrapper.builder()
                 .success(true)
                 .message("All users are retrieved")
@@ -55,7 +56,7 @@ public class UserController {
     public ResponseEntity<ResponseWrapper> getUserByUserName(@PathVariable ("username")String userName){
 
         UserDTO foundUserDTO = userService.findByUserName(userName);
-
+        //return ResponseEntity.ok(new ResponseWrapper("User is retrieved", foundUserDTO, HttpStatus.OK))
         return ResponseEntity.ok(ResponseWrapper.builder()
                 .success(true)
                 .message("User is retrieved")
@@ -73,7 +74,7 @@ public class UserController {
                              ResponseWrapper.builder()
                             .success(true)
                             .code(HttpStatus.CREATED.value())
-                            .message("one user is created")
+                            .message("User is successfully created")
                             .build()
                           );
     }
